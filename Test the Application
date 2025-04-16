@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+        StudentDAO dao = new StudentDAO();
+
+        // Create
+        Student s1 = new Student("Alice", 22);
+        dao.createStudent(s1);
+
+        // Read
+        Student student = dao.readStudent(s1.getId());
+        System.out.println("Read: " + student);
+
+        // Update
+        dao.updateStudent(s1.getId(), "Alicia", 23);
+        Student updated = dao.readStudent(s1.getId());
+        System.out.println("Updated: " + updated);
+
+        // Delete
+        dao.deleteStudent(s1.getId());
+        Student deleted = dao.readStudent(s1.getId());
+        System.out.println("Deleted? " + (deleted == null ? "Yes" : "No"));
+    }
+}
